@@ -25,6 +25,8 @@
 
     }
 
+    // after click "update_post"
+
     if(isset($_POST['update_post']))
     {
     	$post_author = $_POST['post_author'];
