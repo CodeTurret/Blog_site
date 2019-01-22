@@ -39,9 +39,29 @@
         echo "<td>$post_id</td>";
         echo "<td>$post_author</td>";
         echo "<td>$post_title</td>";
-        echo "<td>$post_category_id</td>";
+
+
+
+        $query = "SELECT * FROM categories WHERE cat_id = $post_category_id";
+
+        $select_categories_id = mysqli_query($connection, $query);
+
+        while ($row = mysqli_fetch_assoc($select_categories_id)) {
+            # code...
+            $cat_id = $row['cat_id'];
+            $cat_title = $row['cat_title'];
+
+
+        echo "<td>$cat_title</td>";
+        
+        }
+        //echo "<td>$post_category_id</td>";
+        
+
+
+
         echo "<td>$post_status</td>";
-        echo "<td><img width='80' src='../images/$post_image' alt='image'></td>";
+        echo "<td><img height='50' width='80' src='../images/$post_image' alt='image'></td>";
         echo "<td>$post_tags</td>";
         echo "<td>$post_comment_counts</td>";
         echo "<td>$post_date</td>";
@@ -55,10 +75,10 @@
 
 
 
- ?>
+?>
 
-                
- <?php
+ <?php               
+ 
 
 if(isset($_GET['delete'])) {
 
