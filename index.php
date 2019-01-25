@@ -33,6 +33,8 @@ include "includes/header.php";
 
                     while ($row = mysqli_fetch_assoc($select_all_posts_query)) {
                         # code...
+                        // post_id for different posts
+                        $post_id = $row['post_id'];
                         $post_title = $row['post_title'];
                         $post_author = $row['post_author'];
                         $post_date = $row['post_date'];
@@ -48,7 +50,8 @@ include "includes/header.php";
 
                     <!-- First Blog Post -->
                     <h2>
-                        <a href="#"><?php echo $post_title ?></a>
+                        <!-- dynamic page -->
+                        <a href="post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title ?></a>
                     </h2>
                     
                     <p class="lead">
